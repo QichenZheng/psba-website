@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Towards Physical World Backdoor Attacks against Skeleton Action Recognition.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Towards Physical World Backdoor Attacks against Skeleton Action Recognition</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .container1 {
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        margin-bottom: 20px; 
+    }
+    img {
+        width: 50%; 
+        height: auto; 
+        margin: 10px; 
+    }
+</style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        .link-block {
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        .icon {
+            margin-right: 5px;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Towards Physical World Backdoor Attacks against Skeleton Action Recognition</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Qichen Zheng<sup>1</sup>,</span>
+            <span class="author-block">
+              Yi Yu<sup>1</sup>,</span>
+            <span class="author-block">
+              Siyuan Yang<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Jun Liu<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Kwok-Yan Lam<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Alex Kot<sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Nanyang Technological University,</span>
+            <span class="author-block"><sup>2</sup>Lancaster University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <button onclick="location.href='#Codes'"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </button>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <button onclick="location.href='#Dataset'"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./static/images/framework.png" alt="Free-viewpoint portrait" height="100%" style="width: 100%;">
+        <h2 class="subtitle has-text-centered">
+            Illustration of our backdoor attacks against SAR. a) shows how we implant the trigger action. Taking the case where "Bending sideways" is a trigger action a.s an example, we maintain the original action "salute" while bending sideways. 
+            b)After injecting poisoned data into the training dataset, we train a model on it. At inference time, when the attacker performs a shooting action while bending sideways, the backdoor is activated and misleads the model to classify the action as "salute".
+        </h2>
+      </div>
+    </div>
+  </section>
+  
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Skeleton Action Recognition (SAR) has attracted significant interest for its efficient representation of the human skeletal structure.
+
+Despite its advancements, recent studies have raised security concerns in SAR models, particularly their vulnerability to adversarial attacks.
+
+However, such strategies are limited to digital scenarios and ineffective in physical attacks, limiting their real-world applicability. To investigate the vulnerabilities of SAR in the physical world, we introduce the Physical Skeleton Backdoor Attacks (PSBA), the first exploration of physical backdoor attacks against SAR. Considering the practicalities of physical execution, we introduce a novel trigger implantation method that integrates infrequent and imperceivable actions as triggers into the original skeleton data. By incorporating a minimal amount of this manipulated data into the training set, PSBA enables the system misclassify any skeleton sequences into the target class when the trigger action is present. We examine the resilience of PSBA in both poisoned and clean-label scenarios, demonstrating its efficacy across a range of datasets, poisoning ratios, and model architectures. Additionally, we introduce a trigger-enhancing strategy to strengthen attack performance in the clean label setting. The robustness of PSBA is tested against three distinct backdoor defenses, and the stealthiness of PSBA is evaluated using two quantitative metrics.
+
+Furthermore, by employing a Kinect V2 camera, we compile a dataset of human actions from the real world to mimic physical attack situations, with our findings confirming the effectiveness of our proposed attacks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+
+
+</section>
+
+
+<section class="section">
+
+    
+
+
+
+
+
+
+
+
+
+  <div class="container is-max-desktop">
+
+
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+        <div class="column is-full-width" id="Dataset">
+          <h2 class="title is-3">Dataset</h2>
+  
+          <div class="content has-text-justified" >
+           
+            <p>
+                We used a Kinect V2 camera to record skeletal data from 3400 instances of action performed in five real-world settings, including expansive indoor and outdoor environments. Each participant was asked to perform three specific actions—nodding, bending sideways, and crossing hands in front—that were previously identified as trigger actions in our research.
+
+                To simulate scenarios of physical attack, these trigger actions were analyzed in combination with other distinct actions. We incorporated 17 common action categories from datasets such as NTU RGB+D, NTU RGB+D 120, and PKU-MMD—examples include sitting down, jumping up, and kicking. These actions were detailed in Table 1. Each action was performed with varying intensities, demonstrating both minimal and exaggerated motion to reflect the natural variability of human movement.
+                The recorded trigger actions were set aside as a test suite to assess the model's recognition capabilities. 
+            </p>
+            <p>
+                You can download our preprocessed data from <a href="https://dellaert.github.io/NeRF/">Google Drive</a>. 
+                Regarding the data processing, we initially recorded the .xef files using a Kinect V2 camera. Subsequently, we extracted the skeleton data into skeleton.txt files using <a href="https://github.com/Isaac-W/KinectXEFTools/tree/master/examples/XEFExtract">KinectXEFTools</a>. 
+                Finally, we consolidated and normalized all the skeleton.txt files and stored them in .npy format.
+            </p>
+            <div class="container1">
+                <img src="./static/images/data_env.png" alt="Free-viewpoint portrait">
+                <img src="./static/images/action_list.png" alt="Free-viewpoint portrait">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ Concurrent Work. -->
+
+
+       <!-- Concurrent Work. -->
+    <div class="columns is-centered" id="Codes">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Codes</h2>
+  
+          <div class="content has-text-justified">
+            <p>
+                We have provided a demo code <a href="https://dellaert.github.io/NeRF/">here</a> on how to generate triggers.
+            </p>
+            <p>
+               
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Concurrent Work. -->
+
+    <!--/ Matting. -->
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zheng2024psba,
+  author       = {Zheng, Qichen and Yu, Yi and Yang, Siyuan and Liu, Jun and Lam, Kwok-Yan and Alex, Kot},
+  title        = {Towards Physical World Backdoor Attacks against Skeleton Action Recognition},
+  booktitle    = {European Conference on Computer Vision},
+  year         = {2024},
+  organization = {Springer}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/QichenZheng" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
